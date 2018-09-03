@@ -1,0 +1,15 @@
+Package: ggS3Plotly
+Type: Package
+Title: Plotly <3 S3
+Version: 0.1.0
+Author: Roderik
+Maintainer: Rodrigo Quezada <roderik.ikana@gmail.com>
+Description: It generates a plot with ggplotly, then it generates an html file
+    that is uplodaded to S3
+License:  MIT
+Encoding: UTF-8
+LazyData: true
+Imports:
+    aws.s3,
+    plotly,
+    htmlwidgets
