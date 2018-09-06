@@ -9,7 +9,7 @@
 ggs3plotly <- function(plotblob) {
   plot <- plotly::ggplotly(plotblob)
   html <- htmlwidgets::saveWidget(plot, "temp.html")
-  output_filename <- paste(uuid::UUIDgenerate, ".html", sep = "")
+  output_filename <- paste(uuid::UUIDgenerate(), ".html", sep = "")
   bucket_name <- "julieta-static"
   path <- aws.s3::put_object(file = "temp.html", object = output_filename, bucket = bucket_name, acl = "public-read")
 
