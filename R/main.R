@@ -9,9 +9,11 @@
 ggs3plotly <- function(plotblob) {
   plot <- plotly::ggplotly(plotblob)
   html <- htmlwidgets::saveWidget(plot, "temp.html")
-  path <- aws.s3::put_object(file = "temp.html", object = "iframe_plot_whatever.html", bucket = "julieta-static", acl = "public-read")
+  output_filename <- paste(uuid::UUIDgenerate, ".html", sep = "")
+  bucket_name <- "julieta-static"
+  path <- aws.s3::put_object(file = "temp.html", object = output_filename, bucket = bucket_name, acl = "public-read")
 
-  url <- paste("https://s3-", Sys.getenv('AWS_DEFAULT_REGION'), ".amazonaws.com/", "caro-bucket-function/iframe_plot_whatever.html",sep = "")
+  url <- paste("https://s3-", Sys.getenv('AWS_DEFAULT_REGION'), ".amazonaws.com/", bucket_name, "/", output_filename, sep = "")
 
   return(url)
 }
