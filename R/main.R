@@ -6,7 +6,7 @@
 # ggplotly(ggplot(iris, aes(x = Sepal.Length, y = Petal.Width, color = Species)) + geom_point())
 
 
-ggs3plotly <- function(plotblob) {
+ggS3plotly <- function(plotblob) {
   temp_name <- "temp.html"
   plot <- plotly::ggplotly(plotblob)
   html <- htmlwidgets::saveWidget(plot, temp_name)
