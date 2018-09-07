@@ -14,3 +14,9 @@ Sys.setenv("AWS_ACCESS_KEY_ID" = "mykey",
 ```
 
 To use the package with S3-compatible storage provided by other cloud platforms, set the `AWS_S3_ENDPOINT` environment variable to the appropriate host name. By default, the package uses the AWS endpoint: `s3.amazonaws.com`
+
+To use it you simple need to wrap a plot object on the exposed method ggS3plotly like so.
+
+```R
+ggS3plotly(ggplot(iris, aes(x = Sepal.Length, y = Petal.Width, color = Species)) + geom_point())
+```
